@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Nunito Sans';
+  font-weight: 300;
+  src: url('../../fonts/Nunito-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-weight: 100;
+  src: url('../../fonts//NunitoSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-weight: 700;
+  src: url('../../fonts//NunitoSans-Bold.ttf') format('truetype');
+}
+
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background: #fff;
+  color: #666;
+  font-family: 'Nunito Sans', BlinkMacSystemFont, -apple-system, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 18px;
+  min-width: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-rendering: optimizeLegibility;
+}
