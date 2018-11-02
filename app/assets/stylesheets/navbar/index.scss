@@ -1,0 +1,33 @@
+.navbar {
+  background: #333;
+
+  &__group {
+    margin-left: auto;
+  }
+
+  &__inner {
+    display: flex;
+    max-width: 96rem;
+    margin: 0 auto;
+  }
+
+  &__item {
+    text-decoration: none;
+    padding: 1rem;
+  }
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: 0.2s all;
+
+    &--brand {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      background: #555;
+    }
+  }
+}
