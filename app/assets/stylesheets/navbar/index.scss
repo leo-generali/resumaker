@@ -25,12 +25,19 @@
     transition: 0.2s all;
     font-size: 1.6rem;
 
+    &:hover {
+      background: #555;
+    }
+
     &--brand {
       font-size: 2rem;
     }
 
-    &:hover {
-      background: #555;
+    &--editor {
+      background-color: teal;
+      &:hover {
+        background-color: darken(teal, 5%);
+      }
     }
   }
 }
