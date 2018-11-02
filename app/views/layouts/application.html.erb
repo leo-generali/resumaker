@@ -6,13 +6,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
   </head>
 
   <body>
+    <%= render 'layouts/alert' %>
     <%= render 'navbar/index' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= javascript_pack_tag 'application' %>
   </body>

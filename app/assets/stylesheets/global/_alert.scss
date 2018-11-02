@@ -1,0 +1,17 @@
+.alert {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+
+  &__notice {
+    background-color: teal;
+  }
+
+  &__negative {
+    background-color: red;
+  }
+
+  &__text {
+    color: #ffffff;
+  }
+}

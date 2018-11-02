@@ -1,2 +1,10 @@
-<h1>Resume page</h1>
-<%= link_to 'Create new resume', resume_editor_path %>
+<main class="resume-page">
+  <h1>Resume page</h1>
+  <% if current_user.nil? %>
+    <p>Please note that unless you sign up you will not be able to save your created resume</p>
+  <% end %>
+  <% @resumes.each do |resume| %>
+    <p>This is <%= resume.id %>, it belongs to</p>
+  <% end %>
+  <%= link_to 'Create new resume', resume_create_path, method: :post %>
+</main>
