@@ -4,10 +4,9 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 
-import Resume from './components/Resume';
+import ResumeEditorPage from '../pages/ResumeEditorPage';
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<Resume />, document.getElementById('resume'));
+  ReactDOM.render(<ResumeEditorPage />, document.getElementById('resume'));
 });
