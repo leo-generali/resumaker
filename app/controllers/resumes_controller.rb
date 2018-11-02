@@ -1,6 +1,5 @@
 class ResumesController < ApplicationController
   def index
-    @resume = Resume.new
     if current_user.nil?
       @resumes = []
     else
@@ -10,7 +9,7 @@ class ResumesController < ApplicationController
 
   def create
     if current_user.nil?
-      redirect_to resume_editor_path
+      redirect_to resume_editor_no_id_path
     else
       @resume = current_user.resumes.new()
       if @resume.save
@@ -22,5 +21,6 @@ class ResumesController < ApplicationController
   end
 
   def edit
+    @resume = Resume.find(params[:id])
   end
 end

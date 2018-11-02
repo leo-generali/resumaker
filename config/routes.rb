@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   scope 'resumes' do
     root 'resumes#index', as: 'resume_page_root'
     post '/new', to: 'resumes#create', as: 'resume_create'
-    get '/editor', to: 'resumes#edit', as: 'resume_editor'
   end
+
+  get '/editor/:id', to: 'resumes#edit', as: 'resume_editor'
 
   root to: 'home#index', as: 'application_root'
 end

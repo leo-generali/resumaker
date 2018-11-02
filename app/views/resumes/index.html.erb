@@ -4,7 +4,9 @@
     <p>Please note that unless you sign up you will not be able to save your created resume</p>
   <% end %>
   <% @resumes.each do |resume| %>
-    <p>This is <%= resume.id %>, it belongs to</p>
+    <div>
+      <p>This is <%= resume.id %></p>
+    </div>
   <% end %>
   <%= link_to 'Create new resume', resume_create_path, method: :post %>
 </main>
