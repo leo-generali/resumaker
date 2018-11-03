@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  # User Registration
-  # devise_scope :user do
-  #   get '/login', to: 'devise/sessions#new', as: 'new_user_session' # custom path to login/sign_in
-  #   get '/register', to: 'devise/registrations#new', as: 'new_user_registration' # custom path to sign_up/registration
-  # end
+  namespace :admin do
+      resources :users
+      resources :resumes
+      resources :basic_infos
+
+      root to: "users#index"
+    end
 
   devise_for :users, controllers: { registrations: 'registrations' }
 
@@ -14,6 +16,10 @@ Rails.application.routes.draw do
   end
 
   get '/editor/:id', to: 'resumes#edit', as: 'resume_editor'
+
+  scope 'api/v1/' do
+    get 'resume/:id', to: 'api/editor#show'
+  end
 
   root to: 'home#index', as: 'application_root'
 end

@@ -13,7 +13,7 @@ class ResumesController < ApplicationController
     else
       @resume = current_user.resumes.new()
       if @resume.save
-        redirect_to resume_editor_path, notice: 'Succesfully created a new resume!'
+        redirect_to resume_editor_path(id: @resume.id), notice: 'Succesfully created a new resume!'
       else
         redirect_to application_root_path, notice: 'Did not create new resume!'
       end
@@ -21,6 +21,5 @@ class ResumesController < ApplicationController
   end
 
   def edit
-    @resume = Resume.find(params[:id])
   end
 end
