@@ -5,7 +5,7 @@
   <% end %>
   <% @resumes.each do |resume| %>
     <div>
-      <p>This is <%= resume.id %></p>
+      <p>This is <%= link_to "resume #{resume.id}", resume_editor_path(:id => resume.id) %></p>
     </div>
   <% end %>
   <%= link_to 'Create new resume', resume_create_path, method: :post %>
