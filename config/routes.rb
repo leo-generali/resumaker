@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   scope 'api/v1/' do
     get 'resume/:id', to: 'api/editor#show'
+    get 'generate-pdf', to: 'resume_editor#generate_pdf', as: 'generate_resume'
   end
 
   root to: 'home#index', as: 'application_root'
