@@ -7,12 +7,12 @@ class Resume < ApplicationRecord
 
   private
     def create_basic_info
-      basic_info = BasicInfo.create(name: 'leo')
+      basic_info = BasicInfo.create()
       self.basic_info = basic_info
     end
 
     def create_education_info
-      education_info = EducationInfo.create(institution: 'leo school')
+      education_info = EducationInfo.create()
       self.education_infos << education_info
     end
 end
