@@ -5,7 +5,7 @@ import axios from 'axios';
 // Local Components
 import View from './View';
 
-class Resume extends Component {
+class ResumePreview extends Component {
   _downloadPDF = (data) => {
     const blob = new Blob(data, { type: 'application/pdf' });
     const fileURL = window.URL.createObjectURL(blob);
@@ -43,6 +43,6 @@ class Resume extends Component {
   }
 }
 
-Resume.propTypes = {};
+ResumePreview.propTypes = {};
 
-export default Resume;
+export default ResumePreview;

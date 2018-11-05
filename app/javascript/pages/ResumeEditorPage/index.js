@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 // Local Components
-import Resume from '../../components/Resume';
+import View from './View';
 
 class ResumeEditorPage extends Component {
   state = {
@@ -18,6 +18,7 @@ class ResumeEditorPage extends Component {
       console.log("on page that's linked to a resume! 🎉");
       axios.get(`/api/v1/resume/${resumeId}`).then((res) => {
         const { data } = res;
+        console.log(data);
         this.setState({ isLoaded: true, data });
       });
     }
@@ -25,11 +26,9 @@ class ResumeEditorPage extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        {this.state.isLoaded && (
-          <Resume data={this.state.data} template={this.state.template} />
-        )}
-      </React.Fragment>
+      this.state.isLoaded && (
+        <View data={this.state.data} template={this.state.template} />
+      )
     );
   }
 }
