@@ -1,0 +1,23 @@
+.resume-preview {
+  width: 216mm;
+  height: 279mm;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: 0 auto;
+}
+
+.template-one {
+  margin: 0;
+  font-family: Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text',
+    'Times New Roman';
+  color: #3a3e50;
+
+  &__info-section {
+    text-align: center;
+    .name {
+      font-size: 5rem;
+    }
+    .info-container {
+      font-size: 1.6rem;
+    }
+  }
+}
