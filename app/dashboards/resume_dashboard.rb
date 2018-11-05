@@ -10,6 +10,7 @@ class ResumeDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
     basic_info: Field::HasOne,
+    education_infos: Field::HasMany,
     id: Field::Number,
     name: Field::String,
     created_at: Field::DateTime,
@@ -24,6 +25,7 @@ class ResumeDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :user,
     :basic_info,
+    :education_infos,
     :id,
     :name,
   ].freeze
@@ -33,6 +35,7 @@ class ResumeDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :user,
     :basic_info,
+    :education_infos,
     :id,
     :name,
     :created_at,
@@ -45,6 +48,7 @@ class ResumeDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :user,
     :basic_info,
+    :education_infos,
     :name,
   ].freeze
 
