@@ -1,6 +1,7 @@
 class ResumeEditorController < ApplicationController
   def generate_pdf
-    html = render_to_string 'resume_templates/_template_one.html.erb', layout: false
+    generated_resume = params["body"]
+    html = render_to_string 'resume_templates/_template.html.erb', locals: {resume: generated_resume.html_safe}, layout: false
 
     pdf = WickedPdf.new.pdf_from_string(html,
       {
@@ -13,7 +14,8 @@ class ResumeEditorController < ApplicationController
           right:  0 },
         lowquality: true,
         zoom: 1,
-        dpi: 90
+        dpi: 90,
+        encoding: 'utf8'
       }
     )
 

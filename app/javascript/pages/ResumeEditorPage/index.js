@@ -5,16 +5,20 @@ import axios from 'axios';
 import Resume from '../../components/Resume';
 
 class ResumeEditorPage extends Component {
+  state = {
+    isLoaded: false,
+    template: 1,
+    data: {}
+  };
+
   componentDidMount() {
     const arr = window.location.pathname.split('/');
     const resumeId = arr[arr.length - 1];
     if (!!resumeId) {
       console.log("on page that's linked to a resume! 🎉");
       axios.get(`/api/v1/resume/${resumeId}`).then((res) => {
-        console.log(res);
         const { data } = res;
-        console.log('and the data is:');
-        console.log(data);
+        this.setState({ isLoaded: true, data });
       });
     }
   }
@@ -22,8 +26,9 @@ class ResumeEditorPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <p>Resume editor page</p>
-        <Resume />
+        {this.state.isLoaded && (
+          <Resume data={this.state.data} template={this.state.template} />
+        )}
       </React.Fragment>
     );
   }
