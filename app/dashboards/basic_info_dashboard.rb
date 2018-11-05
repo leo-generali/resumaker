@@ -12,6 +12,10 @@ class BasicInfoDashboard < Administrate::BaseDashboard
     resume: Field::BelongsTo,
     name: Field::String,
     email: Field::String,
+    phone: Field::String,
+    website: Field::String,
+    github: Field::String,
+    linkedin: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,6 +30,10 @@ class BasicInfoDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :email,
+    :phone,
+    :website,
+    :github,
+    :linkedin,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,6 +43,10 @@ class BasicInfoDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :email,
+    :phone,
+    :website,
+    :github,
+    :linkedin,
     :created_at,
     :updated_at,
   ].freeze
@@ -46,6 +58,10 @@ class BasicInfoDashboard < Administrate::BaseDashboard
     :resume,
     :name,
     :email,
+    :phone,
+    :website,
+    :github,
+    :linkedin,
   ].freeze
 
   # Overwrite this method to customize how basic infos are displayed
