@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :users
       resources :resumes
       resources :basic_infos
+      resources :education_infos
 
       root to: "users#index"
     end

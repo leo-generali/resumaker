@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_04_230622) do
+ActiveRecord::Schema.define(version: 2018_11_05_001851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 2018_11_04_230622) do
     t.string "github"
     t.string "linkedin"
     t.index ["resume_id"], name: "index_basic_infos_on_resume_id"
+  end
+
+  create_table "education_infos", force: :cascade do |t|
+    t.bigint "resume_id"
+    t.string "institution"
+    t.string "area"
+    t.string "study_type"
+    t.string "start_date"
+    t.string "end_date"
+    t.decimal "gpa"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resume_id"], name: "index_education_infos_on_resume_id"
   end
 
   create_table "resumes", force: :cascade do |t|
@@ -49,4 +62,5 @@ ActiveRecord::Schema.define(version: 2018_11_04_230622) do
   end
 
   add_foreign_key "basic_infos", "resumes"
+  add_foreign_key "education_infos", "resumes"
 end
