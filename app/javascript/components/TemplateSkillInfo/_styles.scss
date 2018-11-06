@@ -1,0 +1,15 @@
+.template-one {
+  .skill-container {
+    &__category {
+      font-weight: bold;
+      display: inline-block;
+      width: 20%;
+      vertical-align: top;
+    }
+
+    &__skill-wrapper {
+      width: 80%;
+      display: inline-block;
+    }
+  }
+}

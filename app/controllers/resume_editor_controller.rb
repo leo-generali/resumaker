@@ -14,7 +14,7 @@ class ResumeEditorController < ApplicationController
           right:  0 },
         lowquality: true,
         zoom: 1,
-        dpi: 90,
+        dpi: 100,
         encoding: 'utf8'
       }
     )

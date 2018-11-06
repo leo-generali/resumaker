@@ -2,16 +2,14 @@ $template-one-color: #3a3e50;
 
 .template-one {
   margin: 0;
-  font-family: Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text',
+  font-family: Baskerville, 'Baskerville Old Face', 'Hoefler Text',
     'Times New Roman';
   color: $template-one-color;
   padding: 1.5rem;
   height: 100%;
   background-color: #ffffff;
   font-size: 1.6rem;
-
-  &__section {
-  }
+  letter-spacing: 0.05rem;
 
   &__section-header {
     font-size: 1.8rem;
@@ -22,9 +20,17 @@ $template-one-color: #3a3e50;
   }
 
   &__section-seperator {
-    height: 0.2rem;
+    height: 1px;
     width: 100%;
     color: $template-one-color;
     background: $template-one-color;
+
+    &--bottom {
+      margin-bottom: 0.5rem;
+    }
+
+    &--top {
+      margin-top: 0.5rem;
+    }
   }
 }

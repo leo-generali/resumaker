@@ -4,17 +4,17 @@ import PropTypes from 'prop-types';
 // Local Components
 import View from './View';
 
-class TemplateEducationInfo extends Component {
+class index extends Component {
   render() {
     return (
       <View
         template={this.props.template}
-        education_infos={this.props.education_infos}
+        skill_infos={this.props.skill_infos}
       />
     );
   }
 }
 
-TemplateEducationInfo.propTypes = {};
+index.propTypes = {};
 
-export default TemplateEducationInfo;
+export default index;

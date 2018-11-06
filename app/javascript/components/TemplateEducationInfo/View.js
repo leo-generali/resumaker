@@ -13,12 +13,12 @@ const View = ({ template, education_infos }) => {
 const TemplateOne = ({ education_infos }) => {
   return (
     <div className="template-one__section template-one__education-section">
-      <div className="template-one__section-seperator" />
+      <div className="template-one__section-seperator template-one__section-seperator--top" />
       <p className="template-one__section-header">Education</p>
-      <div className="template-one__section-seperator" />
-      {education_infos.map((education_info) => {
+      <div className="template-one__section-seperator template-one__section-seperator--bottom" />
+      {education_infos.map((education_info, index) => {
         return (
-          <div className="template-one__education-info">
+          <div key={index} className="template-one__education-info">
             <p className="education-data education-data--left">
               {education_info.institution}
             </p>
