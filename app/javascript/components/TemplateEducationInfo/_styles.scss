@@ -1,4 +1,18 @@
 .template-one {
-  &__education-section {
+  &__education-info {
+    .education-data {
+      display: inline-block;
+      width: 50%;
+      letter-spacing: 0.1rem;
+
+      &--left {
+        text-align: left;
+        font-weight: bold;
+      }
+
+      &--right {
+        text-align: right;
+      }
+    }
   }
 }

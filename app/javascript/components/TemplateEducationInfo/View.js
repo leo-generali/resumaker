@@ -18,12 +18,25 @@ const TemplateOne = ({ education_infos }) => {
       <div className="template-one__section-seperator" />
       {education_infos.map((education_info) => {
         return (
-          <div>
-            <p>{education_info.institution}</p>
-            <p>
+          <div className="template-one__education-info">
+            <p className="education-data education-data--left">
+              {education_info.institution}
+            </p>
+            <p className="education-data education-data--right">
               {education_info.start_date} - {education_info.end_date}
             </p>
-            <p>{education_info.area}</p>
+            <p className="education-data education-data--left">
+              {education_info.area}
+            </p>
+            <p className="education-data education-data--right">
+              {education_info.location}
+            </p>
+            <p className="education-data education-data--left">
+              {education_info.study_type}
+            </p>
+            <p className="education-data education-data--right">
+              GPA: {education_info.gpa}
+            </p>
           </div>
         );
       })}
