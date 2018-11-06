@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class ResumeDashboard < Administrate::BaseDashboard
+class SkillInfoDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,12 +8,10 @@ class ResumeDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    user: Field::BelongsTo,
-    basic_info: Field::HasOne,
-    education_infos: Field::HasMany,
-    skill_infos: Field::HasMany,
+    resume: Field::BelongsTo,
     id: Field::Number,
-    name: Field::String,
+    category: Field::String,
+    skills: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -24,20 +22,19 @@ class ResumeDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :user,
+    :resume,
     :id,
-    :name,
+    :category,
+    :skills,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :user,
-    :basic_info,
-    :education_infos,
-    :skill_infos,
+    :resume,
     :id,
-    :name,
+    :category,
+    :skills,
     :created_at,
     :updated_at,
   ].freeze
@@ -46,17 +43,15 @@ class ResumeDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :user,
-    :basic_info,
-    :education_infos,
-    :skill_infos,
-    :name,
+    :resume,
+    :category,
+    :skills,
   ].freeze
 
-  # Overwrite this method to customize how resumes are displayed
+  # Overwrite this method to customize how skill infos are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(resume)
-  #   "Resume ##{resume.id}"
+  # def display_resource(skill_info)
+  #   "SkillInfo ##{skill_info.id}"
   # end
 end
