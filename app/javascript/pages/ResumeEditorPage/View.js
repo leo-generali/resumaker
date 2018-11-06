@@ -1,13 +1,13 @@
 import React from 'react';
 
 // Local Components
-import Sidebar from '../../components/Sidebar';
+import Editor from '../../components/Editor';
 import ResumePreview from '../../components/ResumePreview';
 
 const View = (props) => {
   return (
     <React.Fragment>
-      <Sidebar />
+      <Editor />
       <ResumePreview data={props.data} template={props.template} />
     </React.Fragment>
   );
