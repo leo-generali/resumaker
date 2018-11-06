@@ -16,16 +16,16 @@ const TemplateOne = ({ skill_infos }) => {
       <div className="template-one__section-seperator template-one__section-seperator--top" />
       <p className="template-one__section-header">Skills</p>
       <div className="template-one__section-seperator template-one__section-seperator--bottom" />
-      {skill_infos.map((skill_info) => {
+      {skill_infos.map((skill_info, index) => {
         return (
-          <div className="skill-container">
+          <div key={index} className="skill-container">
             <span className="skill-container__category">
               {skill_info.category}:
             </span>
             <div className="skill-container__skill-wrapper">
               {skill_info.skills.map((skill, index) => {
                 return (
-                  <span class="skill-container__skill">
+                  <span key={index} className="skill-container__skill">
                     {skill}
                     {skill_info.skills.length > index + 1 ? ', ' : ''}
                   </span>

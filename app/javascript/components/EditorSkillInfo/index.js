@@ -3,16 +3,15 @@ import React, { Component } from 'react';
 // Local Components
 import View from './View';
 
-class Editor extends Component {
+class EditorSkillInfo extends Component {
   render() {
     return (
       <View
-        data={this.props.data}
-        updateBasicInfoSection={this.props.updateBasicInfoSection}
+        skill_infos={this.props.skill_infos}
         updateSkillInfoSection={this.props.updateSkillInfoSection}
       />
     );
   }
 }
 
-export default Editor;
+export default EditorSkillInfo;

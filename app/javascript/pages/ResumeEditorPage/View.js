@@ -7,7 +7,11 @@ import ResumePreview from '../../components/ResumePreview';
 const View = (props) => {
   return (
     <React.Fragment>
-      <Editor />
+      <Editor
+        data={props.data}
+        updateBasicInfoSection={props.updateBasicInfoSection}
+        updateSkillInfoSection={props.updateSkillInfoSection}
+      />
       <ResumePreview data={props.data} template={props.template} />
     </React.Fragment>
   );
