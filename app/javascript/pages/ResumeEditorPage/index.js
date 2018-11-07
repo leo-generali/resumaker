@@ -17,6 +17,9 @@ class ResumeEditorPage extends Component {
 
     this.updateBasicInfoSection = this.updateBasicInfoSection.bind(this);
     this.updateSkillInfoSection = this.updateSkillInfoSection.bind(this);
+    this.updateEducationInfoSection = this.updateEducationInfoSection.bind(
+      this
+    );
   }
 
   componentDidMount() {
@@ -26,6 +29,7 @@ class ResumeEditorPage extends Component {
       console.log("on page that's linked to a resume! 🎉");
       axios.get(`/api/v1/resume/${resumeId}`).then((res) => {
         const { data } = res;
+        console.log(data);
         this.setState({ isLoaded: true, data });
       });
     }
@@ -50,6 +54,17 @@ class ResumeEditorPage extends Component {
     this.setState({ data });
   };
 
+  updateEducationInfoSection = (educationIndex) => (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    const data = update(this.state.data, {
+      education_infos: {
+        [educationIndex]: { [name]: { $set: value } }
+      }
+    });
+    this.setState({ data });
+  };
+
   render() {
     return (
       this.state.isLoaded && (
@@ -57,6 +72,7 @@ class ResumeEditorPage extends Component {
           data={this.state.data}
           updateBasicInfoSection={this.updateBasicInfoSection}
           updateSkillInfoSection={this.updateSkillInfoSection}
+          updateEducationInfoSection={this.updateEducationInfoSection}
           template={this.state.template}
         />
       )
