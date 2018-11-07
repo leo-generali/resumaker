@@ -4,11 +4,11 @@ import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
-import Resume from 'components/Resume';
+import EditorSkillInfo from 'components/EditorSkillInfo';
 
-describe('The resume component', () => {
+describe("The editor's skill info component", () => {
   it('renders', () => {
-    const wrapper = shallow(<Resume />);
+    const wrapper = shallow(<EditorSkillInfo />);
     expect(wrapper.exists()).toBe(true);
   });
 });
