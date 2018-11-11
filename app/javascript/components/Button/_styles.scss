@@ -1,0 +1,20 @@
+.button {
+  display: inline-block;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &__generate-pdf {
+    background: #0069ed;
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}

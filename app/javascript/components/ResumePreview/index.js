@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // Local Components
 import View from './View';
+import Button from '../Button';
 
 class ResumePreview extends Component {
   _downloadPDF = (data) => {
@@ -36,7 +37,9 @@ class ResumePreview extends Component {
     const { data, template } = this.props;
     return (
       <React.Fragment>
-        <button onClick={this._generatePDF}>Generate PDF</button>
+        <Button onClick={this._generatePDF} classNames="button__generate-pdf">
+          Generate PDF
+        </Button>
         <View data={data} template={template} />
       </React.Fragment>
     );
