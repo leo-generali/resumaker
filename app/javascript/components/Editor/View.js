@@ -1,25 +1,24 @@
 import React from 'react';
 
 // Local Components
-import EditorBasicInfo from '../EditorBasicInfo';
-import EditorSkillInfo from '../EditorSkillInfo';
-import EditorEducationInfo from '../EditorEducationInfo';
 
 const View = (props) => {
   return (
     <div className="editor">
-      <EditorBasicInfo
-        basic_info={props.data.basic_info}
-        updateBasicInfoSection={props.updateBasicInfoSection}
-      />
-      <EditorSkillInfo
-        skill_infos={props.data.skill_infos}
-        updateSkillInfoSection={props.updateSkillInfoSection}
-      />
-      <EditorEducationInfo
-        education_infos={props.data.education_infos}
-        updateEducationInfoSection={props.updateEducationInfoSection}
-      />
+      <div className="editor-selector">
+        {props.children.map((component) => (
+          <button
+            onClick={() => props.changeSelectedEditor(component.props.name)}
+          >
+            {component.props.name}
+          </button>
+        ))}
+      </div>
+      <div className="editor-displayed-section">
+        {props.children.filter((component) => {
+          return component.props.name === props.selectedEditor;
+        })}
+      </div>
     </div>
   );
 };
