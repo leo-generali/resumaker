@@ -12,6 +12,8 @@ const View = (props) => {
         updateBasicInfoSection={props.updateBasicInfoSection}
         updateSkillInfoSection={props.updateSkillInfoSection}
         updateEducationInfoSection={props.updateEducationInfoSection}
+        addSkill={props.addSkill}
+        removeSkill={props.removeSkill}
       />
       <ResumePreview data={props.data} template={props.template} />
     </React.Fragment>

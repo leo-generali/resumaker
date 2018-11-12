@@ -8,7 +8,7 @@ import EditorEducationInfo from '../EditorEducationInfo';
 
 class Editor extends Component {
   state = {
-    selectedEditor: 'Basic Info'
+    selectedEditor: 'Skill Info'
   };
 
   changeSelectedEditor = (selectedEditor) => {
@@ -31,6 +31,8 @@ class Editor extends Component {
             name="Skill Info"
             skill_infos={this.props.data.skill_infos}
             updateSkillInfoSection={this.props.updateSkillInfoSection}
+            addSkill={this.props.addSkill}
+            removeSkill={this.props.removeSkill}
           />,
           <EditorEducationInfo
             name="Education Info"

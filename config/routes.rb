@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   scope 'api/v1/' do
     get 'resume/:id', to: 'api/editor#show'
+    put 'add-skill', to: 'api/skill_infos#add_skill'
+    delete 'remove-skill', to: 'api/skill_infos#remove_skill'
     get 'generate-pdf', to: 'resume_editor#generate_pdf', as: 'generate_resume'
   end
 

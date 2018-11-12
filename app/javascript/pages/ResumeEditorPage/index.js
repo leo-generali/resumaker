@@ -20,6 +20,8 @@ class ResumeEditorPage extends Component {
     this.updateEducationInfoSection = this.updateEducationInfoSection.bind(
       this
     );
+    this.addSkill = this.addSkill.bind(this);
+    this.removeSkill = this.removeSkill.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +67,44 @@ class ResumeEditorPage extends Component {
     this.setState({ data });
   };
 
+  addSkill = (skillInfoIndex, skillInfoID) => (event) => {
+    event.preventDefault();
+    axios
+      .put('/api/v1/add-skill', {
+        skill_info_id: skillInfoID
+      })
+      .then((res) => {
+        const data = update(this.state.data, {
+          skill_infos: {
+            [skillInfoIndex]: { skills: { $set: res.data.skills } }
+          }
+        });
+        this.setState({ data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  removeSkill = (skillInfoIndex, skillInfoID) => (event) => {
+    event.preventDefault();
+    axios
+      .delete('/api/v1/remove-skill', {
+        data: { skill_info_id: skillInfoID }
+      })
+      .then((res) => {
+        const data = update(this.state.data, {
+          skill_infos: {
+            [skillInfoIndex]: { skills: { $set: res.data.skills } }
+          }
+        });
+        this.setState({ data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       this.state.isLoaded && (
@@ -74,6 +114,8 @@ class ResumeEditorPage extends Component {
           updateSkillInfoSection={this.updateSkillInfoSection}
           updateEducationInfoSection={this.updateEducationInfoSection}
           template={this.state.template}
+          addSkill={this.addSkill}
+          removeSkill={this.removeSkill}
         />
       )
     );
