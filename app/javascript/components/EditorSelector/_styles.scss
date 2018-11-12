@@ -1,0 +1,44 @@
+.editor-selector {
+  width: 30%;
+}
+
+.button-editor-selector {
+  $transition-time: 0.15s;
+
+  transition: $transition-time;
+  font-size: 1.7rem;
+  height: 2rem;
+  color: #ffffff;
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: start;
+  height: 4rem;
+
+  &:after {
+    transition: $transition-time;
+    position: absolute;
+    content: '';
+    height: 0.2rem;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    background-image: linear-gradient(45deg, #cbabfb 0%, #fb7ef6 40%);
+  }
+
+  &:hover {
+    text-indent: 0.5rem;
+
+    &:after {
+      width: 100%;
+    }
+  }
+
+  &--active {
+    text-indent: 0.5rem;
+
+    &:after {
+      width: 100%;
+    }
+  }
+}

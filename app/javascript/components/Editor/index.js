@@ -8,7 +8,7 @@ import EditorEducationInfo from '../EditorEducationInfo';
 
 class Editor extends Component {
   state = {
-    selectedEditor: ''
+    selectedEditor: 'Basic Info'
   };
 
   changeSelectedEditor = (selectedEditor) => {
@@ -21,26 +21,24 @@ class Editor extends Component {
         data={this.props.data}
         selectedEditor={this.state.selectedEditor}
         changeSelectedEditor={this.changeSelectedEditor}
-        updateBasicInfoSection={this.props.updateBasicInfoSection}
-        updateSkillInfoSection={this.props.updateSkillInfoSection}
-        updateEducationInfoSection={this.props.updateEducationInfoSection}
-      >
-        <EditorBasicInfo
-          name="Basic Info"
-          basic_info={this.props.data.basic_info}
-          updateBasicInfoSection={this.props.updateBasicInfoSection}
-        />
-        <EditorSkillInfo
-          name="Skill Info"
-          skill_infos={this.props.data.skill_infos}
-          updateSkillInfoSection={this.props.updateSkillInfoSection}
-        />
-        <EditorEducationInfo
-          name="Education Info"
-          education_infos={this.props.data.education_infos}
-          updateEducationInfoSection={this.props.updateEducationInfoSection}
-        />
-      </View>
+        editorSections={[
+          <EditorBasicInfo
+            name="Basic Info"
+            basic_info={this.props.data.basic_info}
+            updateBasicInfoSection={this.props.updateBasicInfoSection}
+          />,
+          <EditorSkillInfo
+            name="Skill Info"
+            skill_infos={this.props.data.skill_infos}
+            updateSkillInfoSection={this.props.updateSkillInfoSection}
+          />,
+          <EditorEducationInfo
+            name="Education Info"
+            education_infos={this.props.data.education_infos}
+            updateEducationInfoSection={this.props.updateEducationInfoSection}
+          />
+        ]}
+      />
     );
   }
 }

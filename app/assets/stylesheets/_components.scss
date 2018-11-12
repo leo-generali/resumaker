@@ -3,7 +3,6 @@
 
 // Components
 @import '../../javascript/components/ResumePreview/styles';
-@import '../../javascript/components/Editor/styles';
 @import '../../javascript/components/Button/styles';
 
 // Resume Templates
@@ -12,6 +11,9 @@
 @import '../../javascript/components/TemplateSkillInfo/styles';
 
 // Editor
+@import '../../javascript/components/Editor/styles';
+@import '../../javascript/components/EditorSelector/styles';
+@import '../../javascript/components/EditorDisplayedSection/styles';
 @import '../../javascript/components/EditorBasicInfo/styles';
 @import '../../javascript/components/EditorSkillInfo/styles';
 @import '../../javascript/components/EditorEducationInfo/styles';

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-// Local Components
+// Local Component
 import View from './View';
 
-class Button extends Component {
+class EditorSelector extends Component {
   render() {
     return <View {...this.props} />;
   }
 }
 
-export default Button;
+export default EditorSelector;
