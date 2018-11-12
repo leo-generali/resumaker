@@ -28,7 +28,6 @@ class ResumeEditorPage extends Component {
     const arr = window.location.pathname.split('/');
     const resumeId = arr[arr.length - 1];
     if (!!resumeId) {
-      console.log("on page that's linked to a resume! 🎉");
       axios.get(`/api/v1/resume/${resumeId}`).then((res) => {
         const { data } = res;
         console.log(data);
@@ -69,6 +68,9 @@ class ResumeEditorPage extends Component {
 
   addSkill = (skillInfoIndex, skillInfoID) => (event) => {
     event.preventDefault();
+    const len = this.state.data.skill_infos[skillInfoIndex].skills.length;
+    const val = this.state.data.skill_infos[skillInfoIndex].skills[len - 1];
+    if (!!!val) return;
     axios
       .put('/api/v1/add-skill', {
         skill_info_id: skillInfoID

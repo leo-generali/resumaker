@@ -7,8 +7,8 @@ const View = (props) => {
     <form className="editor-skill-info">
       {props.skill_infos.map((skillInfo, skillInfoIndex) => {
         return (
-          <label key={skillInfoIndex}>
-            {skillInfo.category}:
+          <div key={skillInfoIndex}>
+            <label>{skillInfo.category}:</label>
             {skillInfo.skills.map((skill, skillIndex) => {
               return (
                 <input
@@ -29,7 +29,7 @@ const View = (props) => {
             <button onClick={props.removeSkill(skillInfoIndex, skillInfo.id)}>
               Remove Skill
             </button>
-          </label>
+          </div>
         );
       })}
     </form>
