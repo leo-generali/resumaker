@@ -1,8 +1,9 @@
 import React from 'react';
 
-const View = (props) => {
-  console.log(props);
+// Local Component
+import Button from '../Button';
 
+const View = (props) => {
   return (
     <form className="editor-skill-info">
       {props.skill_infos.map((skillInfo, skillInfoIndex) => {
@@ -23,12 +24,20 @@ const View = (props) => {
                 />
               );
             })}
-            <button onClick={props.addSkill(skillInfoIndex, skillInfo.id)}>
-              Add Skill
-            </button>
-            <button onClick={props.removeSkill(skillInfoIndex, skillInfo.id)}>
-              Remove Skill
-            </button>
+            <div className="editor-skill-info-button-container">
+              <Button
+                className="editor-skill-info-button editor-skill-info-button--add"
+                onClick={props.addSkill(skillInfoIndex, skillInfo.id)}
+              >
+                Add Skill
+              </Button>
+              <Button
+                className="editor-skill-info-button editor-skill-info-button--remove"
+                onClick={props.removeSkill(skillInfoIndex, skillInfo.id)}
+              >
+                Remove Skill
+              </Button>
+            </div>
           </div>
         );
       })}

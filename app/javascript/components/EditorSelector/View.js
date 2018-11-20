@@ -10,7 +10,7 @@ const View = (props) => {
       {props.editorSections.map((component, index) => (
         <Button
           key={index}
-          classes={
+          className={
             props.selectedEditor === component.props.name
               ? 'button-editor-selector button-editor-selector--active'
               : 'button-editor-selector'

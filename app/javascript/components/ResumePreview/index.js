@@ -37,7 +37,7 @@ class ResumePreview extends Component {
     const { data, template } = this.props;
     return (
       <React.Fragment>
-        <Button onClick={this._generatePDF} classes="button__generate-pdf">
+        <Button className="button-generate-pdf" onClick={this._generatePDF}>
           Generate PDF
         </Button>
         <View data={data} template={template} />
