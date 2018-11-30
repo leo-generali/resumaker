@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :basic_infos
     resources :education_infos
     resources :skill_infos
+    resources :job_infos
 
     root to: "users#index"
   end

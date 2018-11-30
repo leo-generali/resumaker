@@ -5,6 +5,7 @@ import View from './View';
 import EditorBasicInfo from '../EditorBasicInfo';
 import EditorSkillInfo from '../EditorSkillInfo';
 import EditorEducationInfo from '../EditorEducationInfo';
+import EditorJobInfo from '../EditorJobInfo';
 
 class Editor extends Component {
   state = {
@@ -38,6 +39,10 @@ class Editor extends Component {
             name="Education Info"
             education_infos={this.props.data.education_infos}
             updateEducationInfoSection={this.props.updateEducationInfoSection}
+          />,
+          <EditorJobInfo
+            name="Job Info"
+            job_infos={this.props.data.job_infos}
           />
         ]}
       />

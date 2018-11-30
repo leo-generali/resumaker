@@ -5,7 +5,6 @@ const View = (props) => {
   return (
     <form className="editor-education-info">
       {props.education_infos.map((educationInfo, index) => {
-        console.log(educationInfo);
         return (
           <React.Fragment key={index}>
             <label>

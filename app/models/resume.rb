@@ -3,6 +3,7 @@ class Resume < ApplicationRecord
   has_one :basic_info, dependent: :destroy
   has_many :education_infos, dependent: :destroy
   has_many :skill_infos, dependent: :destroy
+  has_many :job_infos, dependent: :destroy
 
   after_create :create_basic_info, :create_education_info, :create_skill_info
 

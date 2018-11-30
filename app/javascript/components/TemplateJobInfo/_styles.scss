@@ -1,0 +1,17 @@
+.template-one {
+  &__job-info {
+    .job-data {
+      display: inline-block;
+      width: 50%;
+
+      &--left {
+        text-align: left;
+        font-weight: bold;
+      }
+
+      &--right {
+        text-align: right;
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import React from 'react';
 import TemplateBasicInfo from '../TemplateBasicInfo';
 import TemplateEducationInfo from '../TemplateEducationInfo';
 import TemplateSkillInfo from '../TemplateSkillInfo';
+import TemplateJobInfo from '../TemplateJobInfo';
 
 const View = ({ data, template }) => {
   return (
@@ -15,6 +16,7 @@ const View = ({ data, template }) => {
           template={template}
           education_infos={data.education_infos}
         />
+        <TemplateJobInfo template={template} job_infos={data.job_infos} />
       </div>
     </div>
   );
