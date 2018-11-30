@@ -20,6 +20,7 @@ class ResumeEditorPage extends Component {
     this.updateEducationInfoSection = this.updateEducationInfoSection.bind(
       this
     );
+    this.updateJobInfoSection = this.updateJobInfoSection.bind(this);
     this.addSkill = this.addSkill.bind(this);
     this.removeSkill = this.removeSkill.bind(this);
   }
@@ -61,6 +62,19 @@ class ResumeEditorPage extends Component {
     const data = update(this.state.data, {
       education_infos: {
         [educationIndex]: { [name]: { $set: value } }
+      }
+    });
+    this.setState({ data });
+  };
+
+  updateJobInfoSection = (jobIndex) => (event) => {
+    console.log(this.state.data.education_infos[jobIndex]);
+
+    const value = event.target.value;
+    const name = event.target.name;
+    const data = update(this.state.data, {
+      job_infos: {
+        [jobIndex]: { [name]: { $set: value } }
       }
     });
     this.setState({ data });
@@ -121,6 +135,7 @@ class ResumeEditorPage extends Component {
           updateBasicInfoSection={this.updateBasicInfoSection}
           updateSkillInfoSection={this.updateSkillInfoSection}
           updateEducationInfoSection={this.updateEducationInfoSection}
+          updateJobInfoSection={this.updateJobInfoSection}
           template={this.state.template}
           addSkill={this.addSkill}
           removeSkill={this.removeSkill}

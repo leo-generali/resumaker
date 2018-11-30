@@ -43,6 +43,7 @@ class Editor extends Component {
           <EditorJobInfo
             name="Job Info"
             job_infos={this.props.data.job_infos}
+            updateJobInfoSection={this.props.updateJobInfoSection}
           />
         ]}
       />

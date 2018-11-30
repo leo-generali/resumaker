@@ -4,36 +4,54 @@ import React from 'react';
 import Button from '../Button';
 
 const View = (props) => {
+  console.log(props);
   return (
     <form className="editor-job-info">
       {props.job_infos.map((jobInfo, index) => {
-        console.log(jobInfo);
         return (
           <React.Fragment>
-            <div class="editor-job-info__form-group">
-              <label for="company" />
-              <input value={jobInfo.company} type="text" name="company" />
+            <div key={index} className="editor-job-info__form-group">
+              <label htmlFor="company" />
+              <input
+                value={jobInfo.company}
+                type="text"
+                name="company"
+                onChange={props.updateJobInfoSection(index)}
+              />
             </div>
-            <div class="editor-job-info__form-group">
-              <label for="date" />
-              <input value={jobInfo.date} type="text" name="date" />
+            <div className="editor-job-info__form-group">
+              <label htmlFor="date" />
+              <input
+                value={jobInfo.date}
+                type="text"
+                name="date"
+                onChange={props.updateJobInfoSection(index)}
+              />
             </div>
-            <div class="editor-job-info__form-group">
-              <label for="position" />
-              <input value={jobInfo.position} type="text" name="position" />
+            <div className="editor-job-info__form-group">
+              <label htmlFor="position" />
+              <input
+                value={jobInfo.position}
+                type="text"
+                name="position"
+                onChange={props.updateJobInfoSection(index)}
+              />
             </div>
-            <div class="editor-job-info__form-group">
-              <label for="location" />
-              <input value={jobInfo.location} type="text" name="location" />
+            <div className="editor-job-info__form-group">
+              <label htmlFor="location" />
+              <input
+                value={jobInfo.location}
+                type="text"
+                name="location"
+                onChange={props.updateJobInfoSection(index)}
+              />
             </div>
-            <div class="editor-job-info__highlights-form-group">
+            <div className="editor-job-info__highlights-form-group">
               {jobInfo.highlights.map((highlight, index) => {
                 return (
                   <React.Fragment>
-                    <label for={`hightlight-${index}`} />
-                    <textarea name={`hightlight-${index}`}>
-                      {highlight}
-                    </textarea>
+                    <label htmlFor={`hightlight-${index}`} />
+                    <textarea value={highlight} name={`hightlight-${index}`} />
                   </React.Fragment>
                 );
               })}

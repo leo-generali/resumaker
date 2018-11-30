@@ -12,6 +12,7 @@ const View = (props) => {
         updateBasicInfoSection={props.updateBasicInfoSection}
         updateSkillInfoSection={props.updateSkillInfoSection}
         updateEducationInfoSection={props.updateEducationInfoSection}
+        updateJobInfoSection={props.updateJobInfoSection}
         addSkill={props.addSkill}
         removeSkill={props.removeSkill}
       />
