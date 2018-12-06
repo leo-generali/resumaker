@@ -9,7 +9,6 @@ const View = (props) => {
     <React.Fragment>
       <Editor
         data={props.data}
-        updateBasicInfoSection={props.updateBasicInfoSection}
         updateSkillInfoSection={props.updateSkillInfoSection}
         updateEducationInfoSection={props.updateEducationInfoSection}
         updateJobInfoSection={props.updateJobInfoSection}

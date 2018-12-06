@@ -15,7 +15,7 @@ class ResumeEditorPage extends Component {
       data: {}
     };
 
-    this.updateBasicInfoSection = this.updateBasicInfoSection.bind(this);
+    // this.updateBasicInfoSection = this.updateBasicInfoSection.bind(this);
     this.updateSkillInfoSection = this.updateSkillInfoSection.bind(this);
     this.updateEducationInfoSection = this.updateEducationInfoSection.bind(
       this
@@ -37,14 +37,14 @@ class ResumeEditorPage extends Component {
     }
   }
 
-  updateBasicInfoSection = (event) => {
-    const value = event.target.value;
-    const name = event.target.name;
-    const data = update(this.state.data, {
-      basic_info: { [name]: { $set: value } }
-    });
-    this.setState({ data });
-  };
+  // updateBasicInfoSection = (event) => {
+  //   const value = event.target.value;
+  //   const name = event.target.name;
+  //   const data = update(this.state.data, {
+  //     basic_info: { [name]: { $set: value } }
+  //   });
+  //   this.setState({ data });
+  // };
 
   updateSkillInfoSection = (skillInfoIndex, skillIndex) => (event) => {
     const value = event.target.value;
@@ -68,8 +68,6 @@ class ResumeEditorPage extends Component {
   };
 
   updateJobInfoSection = (jobIndex) => (event) => {
-    console.log(this.state.data.education_infos[jobIndex]);
-
     const value = event.target.value;
     const name = event.target.name;
     const data = update(this.state.data, {
@@ -132,7 +130,6 @@ class ResumeEditorPage extends Component {
       this.state.isLoaded && (
         <View
           data={this.state.data}
-          updateBasicInfoSection={this.updateBasicInfoSection}
           updateSkillInfoSection={this.updateSkillInfoSection}
           updateEducationInfoSection={this.updateEducationInfoSection}
           updateJobInfoSection={this.updateJobInfoSection}
