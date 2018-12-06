@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import basicInfoReducer from './basicInfoReducer';
+import editorReducer from './editorReducer';
 
 export default combineReducers({
-  basicInfo: basicInfoReducer
+  data: editorReducer
 });

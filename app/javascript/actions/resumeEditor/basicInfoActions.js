@@ -1,12 +1,20 @@
+import update from 'immutability-helper';
+
 import { UPDATE_BASIC_INFO_FORM } from './types';
 
-export const updateBasicInfoSection = (event) => (dispatch) => {
+export const updateBasicInfoSection = (event) => (dispatch, getState) => {
   const value = event.target.value;
   const name = event.target.name;
-  console.log('in the basic info redux action!');
-  console.log(value, name);
+  const { resumeData } = getState().data;
+
+  const data = update(resumeData, {
+    basic_info: {
+      [name]: { $set: value }
+    }
+  });
+
   dispatch({
     type: UPDATE_BASIC_INFO_FORM,
-    payload: value
+    payload: data
   });
 };

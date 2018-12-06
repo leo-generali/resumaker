@@ -6,7 +6,7 @@ const View = (props) => {
       <label>
         Name:
         <input
-          value={props.item}
+          value={props.name}
           onChange={props.updateBasicInfoSection}
           type="text"
           name="name"

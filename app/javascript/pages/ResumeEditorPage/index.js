@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import update from 'immutability-helper';
+import { connect } from 'react-redux';
+import { fetchResumeData } from '../../actions/resumeEditor/dataActions';
 
 // Local Components
 import View from './View';
@@ -10,12 +12,9 @@ class ResumeEditorPage extends Component {
     super(props);
 
     this.state = {
-      isLoaded: false,
-      template: 1,
-      data: {}
+      template: 1
     };
 
-    // this.updateBasicInfoSection = this.updateBasicInfoSection.bind(this);
     this.updateSkillInfoSection = this.updateSkillInfoSection.bind(this);
     this.updateEducationInfoSection = this.updateEducationInfoSection.bind(
       this
@@ -26,25 +25,8 @@ class ResumeEditorPage extends Component {
   }
 
   componentDidMount() {
-    const arr = window.location.pathname.split('/');
-    const resumeId = arr[arr.length - 1];
-    if (!!resumeId) {
-      axios.get(`/api/v1/resume/${resumeId}`).then((res) => {
-        const { data } = res;
-        console.log(data);
-        this.setState({ isLoaded: true, data });
-      });
-    }
+    this.props.onfetchResumeData();
   }
-
-  // updateBasicInfoSection = (event) => {
-  //   const value = event.target.value;
-  //   const name = event.target.name;
-  //   const data = update(this.state.data, {
-  //     basic_info: { [name]: { $set: value } }
-  //   });
-  //   this.setState({ data });
-  // };
 
   updateSkillInfoSection = (skillInfoIndex, skillIndex) => (event) => {
     const value = event.target.value;
@@ -126,20 +108,37 @@ class ResumeEditorPage extends Component {
   };
 
   render() {
+    console.log(this.props.data.isLoaded);
     return (
-      this.state.isLoaded && (
-        <View
-          data={this.state.data}
-          updateSkillInfoSection={this.updateSkillInfoSection}
-          updateEducationInfoSection={this.updateEducationInfoSection}
-          updateJobInfoSection={this.updateJobInfoSection}
-          template={this.state.template}
-          addSkill={this.addSkill}
-          removeSkill={this.removeSkill}
-        />
+      this.props.data.isLoaded && (
+        <View />
+        // <View
+        // data={this.state.data}
+        // updateSkillInfoSection={this.updateSkillInfoSection}
+        // updateEducationInfoSection={this.updateEducationInfoSection}
+        // updateJobInfoSection={this.updateJobInfoSection}
+        // template={this.state.template}
+        // addSkill={this.addSkill}
+        // removeSkill={this.removeSkill}
+        // />
       )
     );
   }
 }
 
-export default ResumeEditorPage;
+const mapStateToProps = (state, props) => {
+  console.log('mapping state to props');
+  console.log(state, props);
+  return {
+    data: state.data
+  };
+};
+
+const mapActionsToProps = {
+  onfetchResumeData: fetchResumeData
+};
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(ResumeEditorPage);
