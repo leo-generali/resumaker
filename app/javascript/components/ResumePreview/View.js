@@ -12,6 +12,7 @@ const View = ({ data, template }) => {
       <div className="template-one">
         {/* <TemplateBasicInfo template={template} basic_info={data.basic_info} /> */}
         <TemplateBasicInfo template={template} />
+        <TemplateSkillInfo template={template} />
         {/* <TemplateSkillInfo template={template} skill_infos={data.skill_infos} />
         <TemplateEducationInfo
           template={template}

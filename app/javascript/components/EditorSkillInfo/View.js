@@ -4,6 +4,8 @@ import React from 'react';
 import Button from '../Button';
 
 const View = (props) => {
+  console.log(props);
+
   return (
     <form className="editor-skill-info">
       {props.skill_infos.map((skillInfo, skillInfoIndex) => {

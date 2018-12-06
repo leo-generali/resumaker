@@ -1,8 +1,10 @@
 import {
-  UPDATE_BASIC_INFO_FORM,
   FETCH_RESUME_DATA_BEGIN,
   FETCH_RESUME_DATA_SUCCESS,
-  FETCH_RESUME_DATA_FAILURE
+  FETCH_RESUME_DATA_FAILURE,
+  UPDATE_RESUME_FORM_INPUT,
+  ADD_SKILL,
+  REMOVE_SKILL
 } from '../../actions/resumeEditor/types';
 
 const initialState = {
@@ -22,7 +24,17 @@ export default function editorReducer(state = initialState, action) {
         resumeData: action.payload,
         isLoaded: true
       };
-    case UPDATE_BASIC_INFO_FORM:
+    case UPDATE_RESUME_FORM_INPUT:
+      return {
+        ...state,
+        resumeData: action.payload
+      };
+    case ADD_SKILL:
+      return {
+        ...state,
+        resumeData: action.payload
+      };
+    case REMOVE_SKILL:
       return {
         ...state,
         resumeData: action.payload

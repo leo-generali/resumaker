@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 // Local Components
 import View from './View';
 
-class index extends Component {
+class TemplateSkillInfo extends Component {
   render() {
     return (
       <View
@@ -15,6 +15,10 @@ class index extends Component {
   }
 }
 
-index.propTypes = {};
+const mapStateToProps = (state) => {
+  return {
+    skill_infos: state.data.resumeData.skill_infos
+  };
+};
 
-export default index;
+export default connect(mapStateToProps)(TemplateSkillInfo);

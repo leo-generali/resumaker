@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import resumeEditorReducer from '../reducers/resumeEditor';
-import resumeEditorInitialState from './resumeEditorInitialState';
 
 const middleware = [thunk];
+
+const resumeEditorInitialState = {};
 
 const resumeEditorStore = createStore(
   resumeEditorReducer,

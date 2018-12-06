@@ -1,6 +1,6 @@
 import update from 'immutability-helper';
 
-import { UPDATE_BASIC_INFO_FORM } from './types';
+import { UPDATE_RESUME_FORM_INPUT } from './types';
 
 export const updateBasicInfoSection = (event) => (dispatch, getState) => {
   const value = event.target.value;
@@ -14,7 +14,7 @@ export const updateBasicInfoSection = (event) => (dispatch, getState) => {
   });
 
   dispatch({
-    type: UPDATE_BASIC_INFO_FORM,
+    type: UPDATE_RESUME_FORM_INPUT,
     payload: data
   });
 };
