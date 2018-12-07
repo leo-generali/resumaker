@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import {
   updateSkillInfoSection,
   addSkill,
-  removeSkill
+  removeSkill,
+  addSkillCategory,
+  removeSkillCategory
 } from '../../actions/resumeEditor/skillInfoActions';
 
 // Local Components
@@ -11,14 +13,14 @@ import View from './View';
 
 class EditorSkillInfo extends Component {
   render() {
-    console.log(this.props);
-
     return (
       <View
         skill_infos={this.props.skill_infos}
         updateSkillInfoSection={this.props.onUpdateSkillInfoSection}
         addSkill={this.props.onAddSkill}
         removeSkill={this.props.onRemoveSkill}
+        addSkillCategory={this.props.onAddSkillCategory}
+        removeSkillCategory={this.props.onRemoveSkillCategory}
       />
     );
   }
@@ -35,6 +37,8 @@ export default connect(
   {
     onUpdateSkillInfoSection: updateSkillInfoSection,
     onAddSkill: addSkill,
-    onRemoveSkill: removeSkill
+    onRemoveSkill: removeSkill,
+    onAddSkillCategory: addSkillCategory,
+    onRemoveSkillCategory: removeSkillCategory
   }
 )(EditorSkillInfo);

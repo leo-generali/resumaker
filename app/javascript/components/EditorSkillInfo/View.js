@@ -4,10 +4,14 @@ import React from 'react';
 import Button from '../Button';
 
 const View = (props) => {
-  console.log(props);
-
   return (
     <form className="editor-skill-info">
+      <Button
+        className="editor-skill-info-button editor-skill-info-button--remove"
+        onClick={props.addSkillCategory}
+      >
+        Add Skill Category
+      </Button>
       {props.skill_infos.map((skillInfo, skillInfoIndex) => {
         return (
           <div key={skillInfoIndex}>
@@ -40,6 +44,12 @@ const View = (props) => {
                 Remove Skill
               </Button>
             </div>
+            <Button
+              className="editor-skill-info-button editor-skill-info-button--remove"
+              onClick={props.removeSkillCategory(skillInfo.id)}
+            >
+              Remove Skill Category
+            </Button>
           </div>
         );
       })}

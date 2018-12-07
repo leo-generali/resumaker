@@ -4,7 +4,9 @@ import {
   FETCH_RESUME_DATA_FAILURE,
   UPDATE_RESUME_FORM_INPUT,
   ADD_SKILL,
-  REMOVE_SKILL
+  REMOVE_SKILL,
+  ADD_SKILL_CATEGORY,
+  REMOVE_SKILL_CATEGORY
 } from '../../actions/resumeEditor/types';
 
 const initialState = {
@@ -35,6 +37,16 @@ export default function editorReducer(state = initialState, action) {
         resumeData: action.payload
       };
     case REMOVE_SKILL:
+      return {
+        ...state,
+        resumeData: action.payload
+      };
+    case ADD_SKILL_CATEGORY:
+      return {
+        ...state,
+        resumeData: action.payload
+      };
+    case REMOVE_SKILL_CATEGORY:
       return {
         ...state,
         resumeData: action.payload

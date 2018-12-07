@@ -1,7 +1,13 @@
 import axios from 'axios';
 import update from 'immutability-helper';
 
-import { UPDATE_RESUME_FORM_INPUT, ADD_SKILL, REMOVE_SKILL } from './types';
+import {
+  UPDATE_RESUME_FORM_INPUT,
+  ADD_SKILL,
+  REMOVE_SKILL,
+  ADD_SKILL_CATEGORY,
+  REMOVE_SKILL_CATEGORY
+} from './types';
 
 export const updateSkillInfoSection = (skillInfoIndex, skillIndex) => (
   dispatch,
@@ -72,6 +78,51 @@ export const removeSkill = (skillInfoIndex, skillInfoID) => (
       });
       dispatch({
         type: REMOVE_SKILL,
+        payload: data
+      });
+    });
+};
+
+export const addSkillCategory = (event) => (dispatch, getState) => {
+  event.preventDefault();
+  const { resumeData } = getState().data;
+  axios
+    .put('/api/v1/add-skill-category', {
+      resume_id: 29
+    })
+    .then((res) => {
+      const data = update(resumeData, {
+        skill_infos: {
+          $push: [res.data]
+        }
+      });
+      dispatch({
+        type: ADD_SKILL_CATEGORY,
+        payload: data
+      });
+    });
+};
+
+export const removeSkillCategory = (skillInfoID) => (dispatch, getState) => (
+  event
+) => {
+  event.preventDefault();
+  const { resumeData } = getState().data;
+  axios
+    .delete('/api/v1/remove-skill-category', {
+      data: { skill_info_id: skillInfoID }
+    })
+    .then((res) => {
+      const skillInfoData = resumeData.skill_infos.filter(
+        (skillInfo) => skillInfo.id != skillInfoID
+      );
+      const data = update(resumeData, {
+        skill_infos: {
+          $set: skillInfoData
+        }
+      });
+      dispatch({
+        type: REMOVE_SKILL_CATEGORY,
         payload: data
       });
     });
