@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 // Local Components
 import View from './View';
@@ -15,6 +15,8 @@ class TemplateEducationInfo extends Component {
   }
 }
 
-TemplateEducationInfo.propTypes = {};
+const mapStateToProps = (state) => ({
+  education_infos: state.data.resumeData.education_infos
+});
 
-export default TemplateEducationInfo;
+export default connect(mapStateToProps)(TemplateEducationInfo);

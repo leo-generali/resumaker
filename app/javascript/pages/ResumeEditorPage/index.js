@@ -20,17 +20,6 @@ class ResumeEditorPage extends Component {
     this.props.onFetchResumeData();
   }
 
-  updateEducationInfoSection = (educationIndex) => (event) => {
-    const value = event.target.value;
-    const name = event.target.name;
-    const data = update(this.state.data, {
-      education_infos: {
-        [educationIndex]: { [name]: { $set: value } }
-      }
-    });
-    this.setState({ data });
-  };
-
   updateJobInfoSection = (jobIndex) => (event) => {
     const value = event.target.value;
     const name = event.target.name;
