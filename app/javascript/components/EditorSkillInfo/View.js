@@ -15,7 +15,15 @@ const View = (props) => {
       {props.skill_infos.map((skillInfo, skillInfoIndex) => {
         return (
           <div key={skillInfoIndex}>
-            <label>{skillInfo.category}:</label>
+            <div>
+              <label for={`category-${skillInfoIndex}`}>Skill Category</label>
+              <input
+                type="text"
+                name={`category-${skillInfoIndex}`}
+                value={skillInfo.category}
+                onChange={props.updateSkillInfoCategory(skillInfoIndex)}
+              />
+            </div>
             {skillInfo.skills.map((skill, skillIndex) => {
               return (
                 <input

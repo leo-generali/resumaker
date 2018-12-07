@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   updateSkillInfoSection,
+  updateSkillInfoCategory,
   addSkill,
   removeSkill,
   addSkillCategory,
@@ -17,6 +18,7 @@ class EditorSkillInfo extends Component {
       <View
         skill_infos={this.props.skill_infos}
         updateSkillInfoSection={this.props.onUpdateSkillInfoSection}
+        updateSkillInfoCategory={this.props.onUpdateSkillInfoCategory}
         addSkill={this.props.onAddSkill}
         removeSkill={this.props.onRemoveSkill}
         addSkillCategory={this.props.onAddSkillCategory}
@@ -36,6 +38,7 @@ export default connect(
   mapStateToProps,
   {
     onUpdateSkillInfoSection: updateSkillInfoSection,
+    onUpdateSkillInfoCategory: updateSkillInfoCategory,
     onAddSkill: addSkill,
     onRemoveSkill: removeSkill,
     onAddSkillCategory: addSkillCategory,

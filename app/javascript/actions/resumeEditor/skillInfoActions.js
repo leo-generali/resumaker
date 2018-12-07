@@ -9,12 +9,33 @@ import {
   REMOVE_SKILL_CATEGORY
 } from './types';
 
+export const updateSkillInfoCategory = (skillInfoIndex) => (
+  dispatch,
+  getState
+) => (event) => {
+  const value = event.target.value;
+  const { resumeData } = getState().data;
+
+  const data = update(resumeData, {
+    skill_infos: {
+      [skillInfoIndex]: { category: { $set: value } }
+    }
+  });
+
+  dispatch({
+    type: UPDATE_RESUME_FORM_INPUT,
+    payload: data
+  });
+};
+
 export const updateSkillInfoSection = (skillInfoIndex, skillIndex) => (
   dispatch,
   getState
 ) => (event) => {
   const value = event.target.value;
   const { resumeData } = getState().data;
+
+  console.log(resumeData);
 
   const data = update(resumeData, {
     skill_infos: {

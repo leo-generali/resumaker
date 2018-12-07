@@ -42,40 +42,9 @@ class ResumeEditorPage extends Component {
     this.setState({ data });
   };
 
-  // removeSkill = (skillInfoIndex, skillInfoID) => (event) => {
-  //   event.preventDefault();
-  //   const len = this.state.data.skill_infos[skillInfoIndex].skills.length;
-  //   if (len === 1) return;
-  //   axios
-  //     .delete('/api/v1/remove-skill', {
-  //       data: { skill_info_id: skillInfoID }
-  //     })
-  //     .then((res) => {
-  //       const data = update(this.state.data, {
-  //         skill_infos: {
-  //           [skillInfoIndex]: { skills: { $set: res.data.skills } }
-  //         }
-  //       });
-  //       this.setState({ data });
-  //     });
-  // };
-
   render() {
     console.log(this.props.data.isLoaded);
-    return (
-      this.props.data.isLoaded && (
-        <View />
-        // <View
-        // data={this.state.data}
-        // updateSkillInfoSection={this.updateSkillInfoSection}
-        // updateEducationInfoSection={this.updateEducationInfoSection}
-        // updateJobInfoSection={this.updateJobInfoSection}
-        // template={this.state.template}
-        // addSkill={this.addSkill}
-        // removeSkill={this.removeSkill}
-        // />
-      )
-    );
+    return this.props.data.isLoaded && <View />;
   }
 }
 
