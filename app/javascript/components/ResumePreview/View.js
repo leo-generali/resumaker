@@ -13,7 +13,7 @@ const View = ({ data, template }) => {
         <TemplateBasicInfo template={template} />
         <TemplateSkillInfo template={template} />
         <TemplateEducationInfo template={template} />
-        {/* <TemplateJobInfo template={template} job_infos={data.job_infos} /> */}
+        <TemplateJobInfo template={template} />
       </div>
     </div>
   );

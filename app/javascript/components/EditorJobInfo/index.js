@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updateJobInfoSection } from '../../actions/resumeEditor/jobInfoActions';
 
 // Local Components
 import View from './View';
 
 class EditorJobInfo extends Component {
   render() {
-    console.log(this.props);
     return (
       <View
         job_infos={this.props.job_infos}
-        updateJobInfoSection={this.props.updateJobInfoSection}
+        updateJobInfoSection={this.props.onUpdateJobInfoSection}
       />
     );
   }
 }
 
-export default EditorJobInfo;
+const mapStateToProps = (state) => ({
+  job_infos: state.data.resumeData.job_infos
+});
+
+export default connect(
+  mapStateToProps,
+  { onUpdateJobInfoSection: updateJobInfoSection }
+)(EditorJobInfo);

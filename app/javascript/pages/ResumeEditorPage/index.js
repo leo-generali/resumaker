@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import update from 'immutability-helper';
 import { connect } from 'react-redux';
 import { fetchResumeData } from '../../actions/resumeEditor/dataActions';
 
@@ -20,28 +18,14 @@ class ResumeEditorPage extends Component {
     this.props.onFetchResumeData();
   }
 
-  updateJobInfoSection = (jobIndex) => (event) => {
-    const value = event.target.value;
-    const name = event.target.name;
-    const data = update(this.state.data, {
-      job_infos: {
-        [jobIndex]: { [name]: { $set: value } }
-      }
-    });
-    this.setState({ data });
-  };
-
   render() {
-    console.log(this.props.data.isLoaded);
-    return this.props.data.isLoaded && <View />;
+    return this.props.isLoaded && <View />;
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    data: state.data
-  };
-};
+const mapStateToProps = (state) => ({
+  isLoaded: state.data.isLoaded
+});
 
 const mapActionsToProps = {
   onFetchResumeData: fetchResumeData
